@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+<% @json_document.each do |key, value| %>
+  <p>
+    <strong><%= key %>:</strong>
+    <%= value %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
