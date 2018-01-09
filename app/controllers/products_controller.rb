@@ -3,24 +3,13 @@ require 'base64'
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
-  # GET /products
-  # GET /products.json
-  def index
-    @products = Product.all
-  end
-
   def show
-    byebug
     @json_document = transform_string(params[:encoded_string]) if params[:encoded_string].present?
   end
 
   # GET /products/new
   def new
     @product = Product.new
-  end
-
-  # GET /products/1/edit
-  def edit
   end
 
   # POST /products
@@ -35,7 +24,6 @@ class ProductsController < ApplicationController
       render :new
     end
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.

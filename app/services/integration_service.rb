@@ -18,6 +18,7 @@ class IntegrationService
       uri = URI.parse(request_url)
       data = { encoded_string: encoded_string }
       http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
       request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json'})
       request.body = data.to_json
       response = http.request(request)
@@ -34,7 +35,7 @@ class IntegrationService
     end
 
     def self.request_url
-      "http://localhost:4000/payments/create_approve_url"
+      "https://blooming-beach-35304.herokuapp.com/payments/create_approve_url"
     end
 
 end
